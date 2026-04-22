@@ -3,9 +3,9 @@ import { ArrowUpRight, GraduationCap, FileSignature, ClipboardCheck, Mail, Phone
 import Aurora from "@/components/Aurora";
 import SpotlightCard from "@/components/SpotlightCard";
 
-// Logo isotipo (1x1) — se ve mejor sobre fondo oscuro
-const LOGO_MARK =
-  "https://res.cloudinary.com/dtqvmh9te/image/upload/v1774559393/Realty_Inmobiliaria_1x1_-_fondo_claro_gxlaw0.png";
+// Logo horizontal para fondo oscuro
+const LOGO_HORIZONTAL =
+  "https://res.cloudinary.com/dtqvmh9te/image/upload/v1761757816/Realty_Inmobiliaria_Horizontal_-_fondo_oscuro_t5r57k.png";
 
 type AppItem = {
   name: string;
