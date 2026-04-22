@@ -1,11 +1,11 @@
 import { motion, type Variants } from "framer-motion";
-import { ArrowUpRight, GraduationCap, FileSignature, ClipboardCheck, Sparkles, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, GraduationCap, FileSignature, ClipboardCheck, Mail, Phone, ArrowRight } from "lucide-react";
 import Aurora from "@/components/Aurora";
-import SplitText from "@/components/SplitText";
 import SpotlightCard from "@/components/SpotlightCard";
 
-const LOGO_DARK_BG =
-  "https://res.cloudinary.com/dtqvmh9te/image/upload/v1774559429/Realty_Inmobiliaria_Horizontal_-_fondo_claro_qqffzq.png";
+// Logo isotipo (1x1) — se ve mejor sobre fondo oscuro
+const LOGO_MARK =
+  "https://res.cloudinary.com/dtqvmh9te/image/upload/v1774559393/Realty_Inmobiliaria_1x1_-_fondo_claro_gxlaw0.png";
 
 type AppItem = {
   name: string;
@@ -19,27 +19,27 @@ type AppItem = {
 const apps: AppItem[] = [
   {
     name: "Aula Virtual",
-    tagline: "Capacitación continua",
+    tagline: "Capacitación",
     description:
-      "Cursos, materiales y certificaciones para el equipo Realty. Aprende a tu ritmo desde cualquier dispositivo.",
+      "Cursos, materiales y certificaciones para el equipo. Aprende a tu ritmo.",
     url: "https://aula.realtygi.pe",
     Icon: GraduationCap,
     tag: "Educación",
   },
   {
     name: "Separaciones",
-    tagline: "Reservas inmobiliarias",
+    tagline: "Reservas",
     description:
-      "Gestiona separaciones de lotes y unidades en tiempo real, con seguimiento del estado y documentación.",
+      "Gestiona separaciones de lotes y unidades con seguimiento en tiempo real.",
     url: "https://separaciones.realtygi.pe",
     Icon: FileSignature,
     tag: "Comercial",
   },
   {
     name: "Evaluaciones",
-    tagline: "Calificación crediticia",
+    tagline: "Calificación",
     description:
-      "Sistema centralizado para registrar, evaluar y aprobar candidatos con trazabilidad completa.",
+      "Registra, evalúa y aprueba candidatos con trazabilidad completa.",
     url: "https://evaluaciones.realtygi.pe",
     Icon: ClipboardCheck,
     tag: "Financiero",
