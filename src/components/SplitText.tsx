@@ -1,19 +1,22 @@
-import React, { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+type SplitAnimationValues = {
+  opacity?: number;
+  x?: number;
+  y?: number;
+  scale?: number;
+  rotate?: number;
+};
 
 export interface SplitTextProps {
   text: string;
   className?: string;
   delay?: number;
   duration?: number;
-  ease?: string | ((t: number) => number);
+  ease?: string;
   splitType?: "chars" | "words" | "lines" | "words, chars";
-  from?: gsap.TweenVars;
-  to?: gsap.TweenVars;
+  from?: SplitAnimationValues;
+  to?: SplitAnimationValues;
   threshold?: number;
   rootMargin?: string;
   tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
@@ -21,11 +24,23 @@ export interface SplitTextProps {
   onLetterAnimationComplete?: () => void;
 }
 
-/**
- * SplitText — Adaptación del componente oficial de ReactBits.
- * Como el plugin gsap/SplitText es premium (Club GreenSock), aquí
- * realizamos el split manualmente con la misma API pública.
- */
+const EASE_MAP: Record<string, string> = {
+  "power3.out": "cubic-bezier(0.22, 1, 0.36, 1)",
+  "power2.out": "cubic-bezier(0.16, 1, 0.3, 1)",
+  "power4.out": "cubic-bezier(0.16, 1, 0.3, 1)",
+  easeOut: "cubic-bezier(0, 0, 0.2, 1)",
+  easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
+  linear: "linear",
+};
+
+const toTransform = (values: SplitAnimationValues = {}) => {
+  const x = values.x ?? 0;
+  const y = values.y ?? 0;
+  const scale = values.scale ?? 1;
+  const rotate = values.rotate ?? 0;
+  return `translate3d(${x}px, ${y}px, 0) scale(${scale}) rotate(${rotate}deg)`;
+};
+
 const SplitText: React.FC<SplitTextProps> = ({
   text,
   className = "",
@@ -42,145 +57,115 @@ const SplitText: React.FC<SplitTextProps> = ({
   onLetterAnimationComplete,
 }) => {
   const ref = useRef<HTMLElement | null>(null);
-  const animationCompletedRef = useRef(false);
-  const onCompleteRef = useRef(onLetterAnimationComplete);
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const onceAnimatedRef = useRef(false);
+
+  const wantsChars = splitType.includes("chars");
+  const cssEase = EASE_MAP[ease] ?? EASE_MAP["power3.out"];
+  const words = useMemo(() => text.split(" "), [text]);
 
   useEffect(() => {
-    onCompleteRef.current = onLetterAnimationComplete;
-  }, [onLetterAnimationComplete]);
+    const element = ref.current;
+    if (!element || onceAnimatedRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setIsVisible(true);
+        onceAnimatedRef.current = true;
+        observer.disconnect();
+      },
+      { threshold, rootMargin }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [rootMargin, threshold]);
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
-    if (document.fonts?.status === "loaded") {
-      setFontsLoaded(true);
-    } else {
-      document.fonts?.ready.then(() => setFontsLoaded(true));
-    }
-  }, []);
+    if (!isVisible || !onLetterAnimationComplete) return;
 
-  useGSAP(
-    () => {
-      if (!ref.current || !text || !fontsLoaded) return;
-      if (animationCompletedRef.current) return;
+    const totalTargets = wantsChars
+      ? text.replace(/\s/g, "").length
+      : words.length;
 
-      const el = ref.current;
-      // Reset content
-      el.innerHTML = "";
+    const totalTime = totalTargets * delay + duration * 1000;
+    const timeout = window.setTimeout(() => {
+      onLetterAnimationComplete();
+    }, totalTime);
 
-      const wantsChars = splitType.includes("chars");
-      const wantsWords = splitType.includes("words") || wantsChars;
+    return () => window.clearTimeout(timeout);
+  }, [delay, duration, isVisible, onLetterAnimationComplete, text, wantsChars, words.length]);
 
-      const targets: HTMLElement[] = [];
-      const words = text.split(" ");
-
-      words.forEach((word, wi) => {
-        const wordSpan = document.createElement("span");
-        wordSpan.className = "split-word";
-        wordSpan.style.display = "inline-block";
-        wordSpan.style.whiteSpace = "nowrap";
-
-        if (wantsChars) {
-          Array.from(word).forEach((char) => {
-            const charSpan = document.createElement("span");
-            charSpan.className = "split-char";
-            charSpan.style.display = "inline-block";
-            charSpan.style.willChange = "transform, opacity";
-            charSpan.textContent = char;
-            wordSpan.appendChild(charSpan);
-            targets.push(charSpan);
-          });
-        } else if (wantsWords) {
-          wordSpan.textContent = word;
-          wordSpan.style.willChange = "transform, opacity";
-          targets.push(wordSpan);
-        } else {
-          wordSpan.textContent = word;
-        }
-
-        el.appendChild(wordSpan);
-        if (wi < words.length - 1) {
-          el.appendChild(document.createTextNode(" "));
-        }
-      });
-
-      const startPct = (1 - threshold) * 100;
-      const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
-      const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
-      const marginUnit = marginMatch ? marginMatch[2] || "px" : "px";
-      const sign =
-        marginValue === 0
-          ? ""
-          : marginValue < 0
-          ? `-=${Math.abs(marginValue)}${marginUnit}`
-          : `+=${marginValue}${marginUnit}`;
-      const start = `top ${startPct}%${sign}`;
-
-      const tween = gsap.fromTo(
-        targets,
-        { ...from },
-        {
-          ...to,
-          duration,
-          ease,
-          stagger: delay / 1000,
-          scrollTrigger: {
-            trigger: el,
-            start,
-            once: true,
-            fastScrollEnd: true,
-          },
-          onComplete: () => {
-            animationCompletedRef.current = true;
-            onCompleteRef.current?.();
-          },
-          willChange: "transform, opacity",
-          force3D: true,
-        }
-      );
-
-      return () => {
-        ScrollTrigger.getAll().forEach((st) => {
-          if (st.trigger === el) st.kill();
-        });
-        tween.kill();
-      };
-    },
-    {
-      dependencies: [
-        text,
-        delay,
-        duration,
-        ease,
-        splitType,
-        JSON.stringify(from),
-        JSON.stringify(to),
-        threshold,
-        rootMargin,
-        fontsLoaded,
-      ],
-      scope: ref,
-    }
-  );
-
-  const style: React.CSSProperties = {
-    textAlign,
-    overflow: "hidden",
-    display: "inline-block",
-    whiteSpace: "normal",
-    wordWrap: "break-word",
-    willChange: "transform, opacity",
-  };
-  const classes = `split-parent ${className}`;
-  const Tag = (tag || "p") as React.ElementType;
+  const Tag = tag as React.ElementType;
 
   return (
     <Tag
       ref={ref as React.RefObject<HTMLElement>}
-      style={style}
-      className={classes}
+      className={`split-parent ${className}`.trim()}
+      style={{
+        textAlign,
+        overflow: "hidden",
+        display: "inline-block",
+        whiteSpace: "normal",
+        wordWrap: "break-word",
+      }}
     >
-      {text}
+      {words.map((word, wordIndex) => (
+        <React.Fragment key={`${word}-${wordIndex}`}>
+          <span
+            className="split-word"
+            style={{
+              display: "inline-block",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {wantsChars
+              ? Array.from(word).map((char, charIndex) => {
+                  const index = words
+                    .slice(0, wordIndex)
+                    .join("")
+                    .length + charIndex + wordIndex;
+
+                  return (
+                    <span
+                      key={`${char}-${index}`}
+                      className="split-char"
+                      style={{
+                        display: "inline-block",
+                        willChange: "transform, opacity",
+                        opacity: isVisible ? to.opacity ?? 1 : from.opacity ?? 0,
+                        transform: isVisible ? toTransform(to) : toTransform(from),
+                        transitionProperty: "transform, opacity",
+                        transitionDuration: `${duration}s`,
+                        transitionTimingFunction: cssEase,
+                        transitionDelay: `${index * delay}ms`,
+                      }}
+                    >
+                      {char}
+                    </span>
+                  );
+                })
+              : (
+                <span
+                  style={{
+                    display: "inline-block",
+                    willChange: "transform, opacity",
+                    opacity: isVisible ? to.opacity ?? 1 : from.opacity ?? 0,
+                    transform: isVisible ? toTransform(to) : toTransform(from),
+                    transitionProperty: "transform, opacity",
+                    transitionDuration: `${duration}s`,
+                    transitionTimingFunction: cssEase,
+                    transitionDelay: `${wordIndex * delay}ms`,
+                  }}
+                >
+                  {word}
+                </span>
+              )}
+          </span>
+          {wordIndex < words.length - 1 ? " " : null}
+        </React.Fragment>
+      ))}
     </Tag>
   );
 };
