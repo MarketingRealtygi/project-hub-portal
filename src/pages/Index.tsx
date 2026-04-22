@@ -89,14 +89,15 @@ const Index = () => {
               Portal Realty
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 font-display text-5xl font-bold leading-[1.05] tracking-[-0.02em] text-foreground md:text-6xl"
-            >
-              Realty <span className="italic font-light text-gradient-gold">al alcance</span>.
-            </motion.h1>
+            <SplitText
+              text="Bienvenido al portal de Realty"
+              as="h1"
+              delay={0.15}
+              stagger={0.025}
+              duration={0.7}
+              highlight={{ word: "Realty", className: "italic font-light text-gradient-gold" }}
+              className="mt-8 font-display text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-foreground md:text-6xl"
+            />
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
