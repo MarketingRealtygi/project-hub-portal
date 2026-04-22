@@ -295,23 +295,23 @@ const Index = () => {
                   ¿Necesitas ayuda con un <span className="shiny-text">aplicativo</span>?
                 </h2>
                 <p className="mt-4 max-w-md text-muted-foreground">
-                  Nuestro equipo está disponible para resolver cualquier duda o problema técnico.
+                  Escríbenos a Asistencia de Sistemas y te respondemos lo antes posible.
                 </p>
               </div>
 
               <div className="space-y-4">
                 <a
-                  href="mailto:informes@realtygi.pe"
+                  href="mailto:asistente.sistemas@realtygi.pe"
                   className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/50 hover:bg-secondary"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <Mail className="h-5 w-5" />
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground">Email</p>
-                    <p className="font-semibold text-foreground">informes@realtygi.pe</p>
+                  <div className="min-w-0">
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground">Email de soporte</p>
+                    <p className="truncate font-semibold text-foreground">asistente.sistemas@realtygi.pe</p>
                   </div>
-                  <ArrowUpRight className="ml-auto h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                  <ArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </a>
                 <a
                   href="tel:+5116517376"
