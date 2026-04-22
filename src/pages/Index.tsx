@@ -91,11 +91,16 @@ const Index = () => {
 
             <SplitText
               text="Bienvenido al portal de Realty"
-              as="h1"
-              delay={0.15}
-              stagger={0.025}
-              duration={0.7}
-              highlight={{ word: "Realty", className: "italic font-light text-gradient-gold" }}
+              tag="h1"
+              delay={50}
+              duration={1.2}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-50px"
+              textAlign="center"
               className="mt-8 font-display text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-foreground md:text-6xl"
             />
 
@@ -155,16 +160,26 @@ const Index = () => {
             </p>
           </div>
 
-          <ScrollStack>
+          <ScrollStack
+            useWindowScroll
+            itemDistance={80}
+            itemScale={0.04}
+            itemStackDistance={28}
+            stackPosition="22%"
+            scaleEndPosition="12%"
+            baseScale={0.86}
+            rotationAmount={0}
+            blurAmount={0}
+          >
             {apps.map(({ name, tagline, description, url, Icon, tag }) => (
-              <ScrollStackItem key={name}>
+              <ScrollStackItem key={name} itemClassName="border border-border bg-[var(--gradient-card)] shadow-card-elev backdrop-blur-sm">
                 <a
                   href={url}
                   target="_blank"
                   rel="noreferrer"
-                  className="group block rounded-[2rem] border border-border bg-[var(--gradient-card)] p-10 shadow-card-elev backdrop-blur-sm transition-colors hover:border-primary/40 md:p-14"
+                  className="group block h-full w-full"
                 >
-                  <div className="grid gap-10 md:grid-cols-12 md:items-center">
+                  <div className="grid h-full gap-8 md:grid-cols-12 md:items-center">
                     {/* Icono grande */}
                     <div className="md:col-span-3">
                       <div className="relative inline-flex">
