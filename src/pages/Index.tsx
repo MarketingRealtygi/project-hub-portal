@@ -146,7 +146,7 @@ const Index = () => {
       </section>
 
       {/* APLICATIVOS */}
-      <section id="aplicativos" className="relative py-28">
+      <section id="aplicativos" className="relative scroll-mt-24 py-28">
         <div className="container">
           <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
@@ -222,8 +222,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CONTACTO */}
-      <section id="contacto" className="relative py-28">
+      {/* SOPORTE */}
+      <section id="soporte" className="relative scroll-mt-24 py-28">
         <div className="container">
           <div className="relative overflow-hidden rounded-[2rem] border border-border bg-[var(--gradient-card)] p-10 md:p-16">
             <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
@@ -277,10 +277,8 @@ const Index = () => {
 
       <footer className="border-t border-border py-10">
         <div className="container flex flex-col items-center justify-between gap-4 text-xs text-muted-foreground md:flex-row">
-          <div className="flex items-center gap-3">
-            <img src={LOGO_MARK} alt="Realty" className="h-7 w-7 rounded-md bg-foreground p-1" />
-            <span>© {new Date().getFullYear()} Realty Inmobiliaria. Portal interno.</span>
-          </div>
+          <img src={LOGO_HORIZONTAL} alt="Realty" className="h-6 w-auto" />
+          <span>© {new Date().getFullYear()} Realty Inmobiliaria. Portal interno.</span>
           <a href="https://realtygi.pe" target="_blank" rel="noreferrer" className="hover:text-foreground">
             realtygi.pe
           </a>
