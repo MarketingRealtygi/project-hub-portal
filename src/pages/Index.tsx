@@ -1,7 +1,8 @@
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight, GraduationCap, FileSignature, ClipboardCheck, Mail, Phone, ArrowRight } from "lucide-react";
 import Aurora from "@/components/Aurora";
-import SpotlightCard from "@/components/SpotlightCard";
+import SplitText from "@/components/SplitText";
+import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
 // Logo horizontal para fondo oscuro
 const LOGO_HORIZONTAL =
@@ -46,16 +47,6 @@ const apps: AppItem[] = [
   },
 ];
 
-const container: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.4 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
-};
-
 const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background">
@@ -98,14 +89,15 @@ const Index = () => {
               Portal Realty
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 font-display text-5xl font-bold leading-[1.05] tracking-[-0.02em] text-foreground md:text-6xl"
-            >
-              Realty <span className="italic font-light text-gradient-gold">al alcance</span>.
-            </motion.h1>
+            <SplitText
+              text="Bienvenido al portal de Realty"
+              as="h1"
+              delay={0.15}
+              stagger={0.025}
+              duration={0.7}
+              highlight={{ word: "Realty", className: "italic font-light text-gradient-gold" }}
+              className="mt-8 font-display text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-foreground md:text-6xl"
+            />
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -163,62 +155,59 @@ const Index = () => {
             </p>
           </div>
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="grid gap-6 md:grid-cols-3"
-          >
+          <ScrollStack>
             {apps.map(({ name, tagline, description, url, Icon, tag }) => (
-              <motion.a
-                key={name}
-                variants={item}
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-              >
-                <SpotlightCard className="h-full">
-                  <div className="flex h-full flex-col gap-8 p-8">
-                    <div className="flex items-start justify-between">
-                      <div className="relative">
-                        <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-xl" />
-                        <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 text-primary">
-                          <Icon className="h-6 w-6" />
+              <ScrollStackItem key={name}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block rounded-[2rem] border border-border bg-[var(--gradient-card)] p-10 shadow-card-elev backdrop-blur-sm transition-colors hover:border-primary/40 md:p-14"
+                >
+                  <div className="grid gap-10 md:grid-cols-12 md:items-center">
+                    {/* Icono grande */}
+                    <div className="md:col-span-3">
+                      <div className="relative inline-flex">
+                        <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-2xl" />
+                        <div className="relative flex h-24 w-24 items-center justify-center rounded-3xl border border-primary/30 bg-primary/10 text-primary">
+                          <Icon className="h-10 w-10" />
                         </div>
                       </div>
-                      <span className="rounded-full border border-border bg-secondary px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-                        {tag}
-                      </span>
                     </div>
 
-                    <div className="flex-1">
-                      <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
-                        {tagline}
-                      </p>
-                      <h3 className="mt-2 font-display text-2xl font-bold text-foreground">
+                    {/* Contenido */}
+                    <div className="md:col-span-7">
+                      <div className="flex items-center gap-3">
+                        <span className="rounded-full border border-border bg-secondary px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                          {tag}
+                        </span>
+                        <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
+                          {tagline}
+                        </span>
+                      </div>
+                      <h3 className="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl">
                         {name}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
                         {description}
+                      </p>
+                      <p className="mt-4 font-mono text-xs text-muted-foreground">
+                        {url.replace("https://", "")}
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-border pt-6">
-                      <span className="font-mono text-xs text-muted-foreground">
-                        {url.replace("https://", "")}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1">
+                    {/* CTA */}
+                    <div className="md:col-span-2 md:text-right">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-3 text-sm font-semibold text-primary transition-all group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
                         Entrar
-                        <ArrowUpRight className="h-4 w-4" />
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
                       </span>
                     </div>
                   </div>
-                </SpotlightCard>
-              </motion.a>
+                </a>
+              </ScrollStackItem>
             ))}
-          </motion.div>
+          </ScrollStack>
         </div>
       </section>
 
