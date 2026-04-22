@@ -2,56 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Portal Realty — Design System
+ * Tipografía: Montserrat
+ * Paleta inspirada en realtygi.pe (dorado cálido + negro profundo)
+ * Todos los colores en HSL.
+ */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Tema oscuro como base — el portal es dark by default */
+    --background: 30 10% 6%;
+    --foreground: 40 30% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 12% 9%;
+    --card-foreground: 40 30% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 12% 9%;
+    --popover-foreground: 40 30% 96%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Dorado Realty */
+    --primary: 38 55% 55%;
+    --primary-foreground: 30 20% 8%;
+    --primary-glow: 42 75% 65%;
+    --primary-deep: 32 60% 38%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 30 10% 14%;
+    --secondary-foreground: 40 25% 92%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 8% 16%;
+    --muted-foreground: 38 12% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 38 55% 55%;
+    --accent-foreground: 30 20% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 36 15% 18%;
+    --input: 36 15% 18%;
+    --ring: 38 55% 55%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38 65% 60%), hsl(42 80% 70%) 50%, hsl(32 60% 45%));
+    --gradient-aurora: radial-gradient(60% 60% at 20% 30%, hsl(38 70% 55% / 0.35), transparent 60%),
+                      radial-gradient(50% 50% at 80% 20%, hsl(28 80% 50% / 0.28), transparent 60%),
+                      radial-gradient(70% 70% at 60% 90%, hsl(45 90% 60% / 0.22), transparent 60%);
+    --gradient-card: linear-gradient(160deg, hsl(30 14% 11%) 0%, hsl(30 10% 7%) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 20px 60px -20px hsl(38 70% 50% / 0.4);
+    --shadow-card: 0 30px 80px -30px hsl(0 0% 0% / 0.6);
+
+    /* Motion */
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -100,6 +113,71 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-aurora {
+    background-image: var(--gradient-aurora);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-card-elev {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Shiny text sweep */
+  .shiny-text {
+    background: linear-gradient(
+      110deg,
+      hsl(var(--foreground)) 35%,
+      hsl(var(--primary-glow)) 50%,
+      hsl(var(--foreground)) 65%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 6s linear infinite;
+  }
+
+  @keyframes shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Aurora drift */
+  .aurora-drift {
+    animation: aurora 18s ease-in-out infinite alternate;
+  }
+  @keyframes aurora {
+    0% { transform: translate3d(0,0,0) scale(1); filter: hue-rotate(0deg); }
+    100% { transform: translate3d(2%, -3%, 0) scale(1.08); filter: hue-rotate(15deg); }
+  }
+
+  /* Grid pattern */
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 70%);
   }
 }
