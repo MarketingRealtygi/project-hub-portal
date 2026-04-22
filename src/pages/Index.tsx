@@ -335,7 +335,7 @@ const Index = () => {
       <footer className="border-t border-border py-10">
         <div className="container flex flex-col items-center justify-between gap-4 text-xs text-muted-foreground md:flex-row">
           <div className="flex items-center gap-3">
-            <img src={LOGO_DARK_BG} alt="Realty" className="h-6 w-auto opacity-80" />
+            <img src={LOGO_MARK} alt="Realty" className="h-7 w-7 rounded-md bg-foreground p-1" />
             <span>© {new Date().getFullYear()} Realty Inmobiliaria. Portal interno.</span>
           </div>
           <a href="https://realtygi.pe" target="_blank" rel="noreferrer" className="hover:text-foreground">
