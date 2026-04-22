@@ -60,23 +60,20 @@ const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background">
       {/* NAV */}
-      <header className="absolute inset-x-0 top-0 z-30">
-        <nav className="container flex items-center justify-between py-6">
+      <header className="fixed inset-x-0 top-0 z-30 border-b border-border/40 bg-background/70 backdrop-blur-xl">
+        <nav className="container flex items-center justify-between py-4">
           <a href="/" className="flex items-center gap-3">
-            <img src={LOGO_MARK} alt="Realty Inmobiliaria" className="h-11 w-11 rounded-lg bg-foreground/95 p-1.5" />
-            <div className="hidden flex-col leading-none sm:flex">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Portal</span>
-              <span className="text-sm font-bold tracking-wide text-foreground">Realty</span>
-            </div>
+            <img src={LOGO_HORIZONTAL} alt="Realty Inmobiliaria" className="h-8 w-auto" />
           </a>
           <div className="hidden items-center gap-10 text-sm font-medium text-muted-foreground md:flex">
+            <a href="#inicio" className="transition-colors hover:text-foreground">Inicio</a>
             <a href="#aplicativos" className="transition-colors hover:text-foreground">Aplicativos</a>
-            <a href="#contacto" className="transition-colors hover:text-foreground">Soporte</a>
+            <a href="#soporte" className="transition-colors hover:text-foreground">Soporte</a>
             <a
               href="https://realtygi.pe"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-foreground/80 transition-colors hover:text-primary"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-1.5 text-foreground/80 transition-colors hover:border-primary/60 hover:text-primary"
             >
               realtygi.pe
               <ArrowUpRight className="h-3.5 w-3.5" />
