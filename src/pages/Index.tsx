@@ -83,120 +83,66 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section className="relative isolate flex min-h-screen items-center pt-28">
+      <section id="inicio" className="relative isolate flex min-h-[88vh] items-center pt-24">
         <Aurora />
 
         <div className="container relative z-10">
-          <div className="grid items-center gap-16 lg:grid-cols-12">
-            {/* Columna texto */}
-            <div className="lg:col-span-7">
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-muted-foreground"
+          <div className="mx-auto max-w-3xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/40 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground backdrop-blur"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
+              Portal Realty
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8 font-display text-5xl font-bold leading-[1.05] tracking-[-0.02em] text-foreground md:text-6xl"
+            >
+              Realty <span className="italic font-light text-gradient-gold">al alcance</span>.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            >
+              Un único punto de acceso a las herramientas internas de la organización.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mt-10 flex flex-wrap items-center justify-center gap-4"
+            >
+              <a
+                href="#aplicativos"
+                className="group inline-flex items-center gap-3 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
               >
-                <span className="h-px w-8 bg-primary" />
-                Portal interno
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-[-0.02em] text-foreground md:text-7xl lg:text-[5.5rem]"
+                Ver aplicativos
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-background/10 transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-primary-foreground/15">
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </a>
+              <a
+                href="#soporte"
+                className="inline-flex items-center gap-2 px-2 py-3.5 text-sm font-semibold text-muted-foreground underline-offset-8 transition-colors hover:text-foreground hover:underline"
               >
-                Trabaja con todo lo que <span className="italic font-light text-gradient-gold">Realty</span> pone a tu alcance.
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
-              >
-                Un único punto de acceso a las herramientas internas de la organización.
-                Limpio, rápido y diseñado para tu día a día.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.8 }}
-                className="mt-12 flex flex-wrap items-center gap-4"
-              >
-                <a
-                  href="#aplicativos"
-                  className="group inline-flex items-center gap-3 rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-                >
-                  Ver aplicativos
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-background/10 transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-primary-foreground/15">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </a>
-                <a
-                  href="#contacto"
-                  className="inline-flex items-center gap-2 px-2 py-4 text-sm font-semibold text-muted-foreground underline-offset-8 transition-colors hover:text-foreground hover:underline"
-                >
-                  Hablar con soporte
-                </a>
-              </motion.div>
-            </div>
-
-            {/* Columna decorativa con marca */}
-            <div className="hidden lg:col-span-5 lg:block">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mx-auto aspect-square w-full max-w-md"
-              >
-                {/* Anillos */}
-                <div className="absolute inset-0 rounded-full border border-border/60" />
-                <div className="absolute inset-8 rounded-full border border-border/40" />
-                <div className="absolute inset-16 rounded-full border border-primary/30" />
-                <div className="absolute inset-24 rounded-full border border-primary/20" />
-
-                {/* Halo */}
-                <div className="absolute inset-12 rounded-full bg-primary/10 blur-2xl" />
-
-                {/* Logo central */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-3xl bg-foreground p-6 shadow-card-elev">
-                    <img src={LOGO_MARK} alt="Realty" className="h-24 w-24" />
-                  </div>
-                </div>
-
-                {/* Pings */}
-                <span className="absolute right-4 top-1/3 h-2 w-2 rounded-full bg-primary shadow-[0_0_20px_hsl(var(--primary))]" />
-                <span className="absolute bottom-1/4 left-2 h-2 w-2 rounded-full bg-primary-glow shadow-[0_0_20px_hsl(var(--primary-glow))]" />
-              </motion.div>
-            </div>
+                Hablar con soporte
+              </a>
+            </motion.div>
           </div>
-
-          {/* Stats / meta row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="mt-20 grid grid-cols-2 gap-8 border-t border-border/60 pt-8 md:grid-cols-4"
-          >
-            {[
-              { k: "3", v: "Aplicativos activos" },
-              { k: "24/7", v: "Acceso disponible" },
-              { k: "1", v: "Punto de entrada" },
-              { k: "100%", v: "Equipo Realty" },
-            ].map((s) => (
-              <div key={s.v}>
-                <p className="font-display text-3xl font-bold text-foreground md:text-4xl">{s.k}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">{s.v}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
+        {/* Smooth section transition */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
       </section>
 
       {/* APLICATIVOS */}
