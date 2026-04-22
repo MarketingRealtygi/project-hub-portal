@@ -1,7 +1,8 @@
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight, GraduationCap, FileSignature, ClipboardCheck, Mail, Phone, ArrowRight } from "lucide-react";
 import Aurora from "@/components/Aurora";
-import SpotlightCard from "@/components/SpotlightCard";
+import SplitText from "@/components/SplitText";
+import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
 // Logo horizontal para fondo oscuro
 const LOGO_HORIZONTAL =
@@ -45,16 +46,6 @@ const apps: AppItem[] = [
     tag: "Financiero",
   },
 ];
-
-const container: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.4 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
-};
 
 const Index = () => {
   return (
