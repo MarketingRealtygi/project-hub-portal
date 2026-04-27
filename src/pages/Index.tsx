@@ -499,16 +499,8 @@ const Index = () => {
           </div>
 
           <footer className="mx-auto mt-6 flex w-full max-w-[72rem] items-center justify-between gap-4 border-t border-border/80 pt-3 text-[11px] text-muted-foreground md:mt-0 md:pt-4">
-            <img src={LOGO_HORIZONTAL} alt="Realty" className="h-5 w-auto" />
-            <span>&copy; {new Date().getFullYear()} Realty Inmobiliaria. Portal interno.</span>
-            <a
-              href="https://realtygi.pe"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-foreground"
-            >
-              realtygi.pe
-            </a>
+            <span>Portal interno</span>
+            <span>&copy; {new Date().getFullYear()} Realty Inmobiliaria</span>
           </footer>
         </div>
       </section>
