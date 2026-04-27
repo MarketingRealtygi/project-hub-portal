@@ -184,14 +184,14 @@ const Index = () => {
     const isMobileCard = mode === "mobile";
     const { name, tagline, description, url, img, tag, icon: Icon } = app;
     const spotlightStyle = {
-      ["--spotlight-padding" as string]: isMobileCard ? "1rem" : "1.25rem",
+      ["--spotlight-padding" as string]: isMobileCard ? "1rem" : "1.35rem",
       ["--spotlight-radius" as string]: isMobileCard ? "1.5rem" : "1.5rem",
     } as CSSProperties;
 
     return (
       <SpotlightCard
         className={`h-full ${
-        isMobileCard ? "mx-auto w-full max-w-[22rem]" : "flex-auto min-w-0 w-[22rem] max-w-[22rem]"
+          isMobileCard ? "mx-auto w-full max-w-[22rem]" : "w-full max-w-[23rem]"
         }`.trim()}
         spotlightColor="rgba(214, 168, 71, 0.18)"
         style={spotlightStyle}
@@ -201,17 +201,17 @@ const Index = () => {
           target="_blank"
           rel="noreferrer"
           className={`group flex h-full flex-col ${
-            isMobileCard ? "min-h-[25rem]" : "min-h-[24rem]"
+            isMobileCard ? "min-h-[25rem]" : "min-h-[25rem]"
           }`}
         >
           <div
             className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-secondary/35 ${
-              isMobileCard ? "mb-4 p-2.5" : "mb-3.5 p-2"
+              isMobileCard ? "mb-4 p-2.5" : "mb-4 p-2.5"
             }`}
           >
             <div
               className={`relative overflow-hidden rounded-[1rem] border border-white/5 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] ${
-              isMobileCard ? "aspect-[16/10]" : "aspect-[16/9]"
+              isMobileCard ? "aspect-[16/10]" : "aspect-[16/10]"
               }`}
             >
               {img ? (
