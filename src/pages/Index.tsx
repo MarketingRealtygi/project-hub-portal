@@ -358,7 +358,7 @@ const Index = () => {
             <img
               src={LOGO_HORIZONTAL}
               alt="Realty Inmobiliaria"
-              className="h-6 w-auto sm:h-7"
+              className="h-4 w-auto sm:h-7"
             />
             <a
               href="https://realtygi.pe"
