@@ -184,14 +184,14 @@ const Index = () => {
     const isMobileCard = mode === "mobile";
     const { name, tagline, description, url, img, tag, icon: Icon } = app;
     const spotlightStyle = {
-      ["--spotlight-padding" as string]: isMobileCard ? "1rem" : "0.95rem",
-      ["--spotlight-radius" as string]: isMobileCard ? "1.5rem" : "1.25rem",
+      ["--spotlight-padding" as string]: isMobileCard ? "1rem" : "1.25rem",
+      ["--spotlight-radius" as string]: isMobileCard ? "1.5rem" : "1.5rem",
     } as CSSProperties;
 
     return (
       <SpotlightCard
         className={`h-full ${
-        isMobileCard ? "mx-auto w-full max-w-[22rem]" : "flex-auto min-w-0 max-w-[20rem]"
+        isMobileCard ? "mx-auto w-full max-w-[22rem]" : "flex-auto min-w-0 w-[22rem] max-w-[22rem]"
         }`.trim()}
         spotlightColor="rgba(214, 168, 71, 0.18)"
         style={spotlightStyle}
@@ -201,17 +201,17 @@ const Index = () => {
           target="_blank"
           rel="noreferrer"
           className={`group flex h-full flex-col ${
-            isMobileCard ? "min-h-[25rem]" : "min-h-64"
+            isMobileCard ? "min-h-[25rem]" : "min-h-[24rem]"
           }`}
         >
           <div
             className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-secondary/35 ${
-              isMobileCard ? "mb-4 p-2.5" : "mb-2.5 p-[0.38rem]"
+              isMobileCard ? "mb-4 p-2.5" : "mb-3.5 p-2"
             }`}
           >
             <div
-              className={`relative overflow-hidden rounded-[0.95rem] border border-white/5 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] ${
-              isMobileCard ? "aspect-[16/10]" : "aspect-[16/6]"
+              className={`relative overflow-hidden rounded-[1rem] border border-white/5 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] ${
+              isMobileCard ? "aspect-[16/10]" : "aspect-[16/9]"
               }`}
             >
               {img ? (
@@ -230,11 +230,11 @@ const Index = () => {
                   />
                   <div
                     className={`absolute left-3 top-3 flex items-center justify-center rounded-xl border border-white/10 bg-background/72 text-primary backdrop-blur ${
-                      isMobileCard ? "h-10 w-10" : "h-[2.2rem] w-[2.2rem]"
+                      isMobileCard ? "h-10 w-10" : "h-[2.4rem] w-[2.4rem]"
                     }`}
                   >
                     <Icon
-                      className={isMobileCard ? "h-5 w-5" : "h-[1rem] w-[1rem]"}
+                      className={isMobileCard ? "h-5 w-5" : "h-[1.1rem] w-[1.1rem]"}
                     />
                   </div>
                 </>
@@ -242,7 +242,7 @@ const Index = () => {
                 <div className="flex h-full items-center justify-center p-6">
                   <div
                     className={`flex items-center justify-center rounded-2xl border border-primary/20 bg-background/70 text-primary backdrop-blur ${
-                      isMobileCard ? "h-16 w-16" : "h-[3.35rem] w-[3.35rem]"
+                      isMobileCard ? "h-16 w-16" : "h-[3.6rem] w-[3.6rem]"
                     }`}
                   >
                     <Icon className={isMobileCard ? "h-8 w-8" : "h-5.5 w-5.5"} />
@@ -257,14 +257,14 @@ const Index = () => {
               <div className="min-w-0">
                 <p
                   className={`font-semibold uppercase tracking-[0.24em] text-primary/80 ${
-                    isMobileCard ? "text-[10px]" : "text-[8.5px]"
+                    isMobileCard ? "text-[10px]" : "text-[10px]"
                   }`}
                 >
                   {tagline}
                 </p>
                 <h3
                   className={`mt-2 font-display font-bold leading-tight text-foreground ${
-                    isMobileCard ? "text-[1.55rem]" : "text-[1.05rem]"
+                    isMobileCard ? "text-[1.55rem]" : "text-[1.25rem]"
                   }`}
                 >
                   {name}
@@ -272,7 +272,7 @@ const Index = () => {
               </div>
               <span
                 className={`shrink-0 rounded-full border border-border bg-secondary px-2.5 py-1 font-semibold uppercase tracking-widest text-muted-foreground ${
-                  isMobileCard ? "text-[10px]" : "text-[8px]"
+                  isMobileCard ? "text-[10px]" : "text-[9px]"
                 }`}
               >
                 {tag}
@@ -283,7 +283,7 @@ const Index = () => {
               className={`mt-3 text-muted-foreground ${
                 isMobileCard
                   ? "text-[13.5px] leading-relaxed"
-                  : "text-[10.5px] leading-[1.4]"
+                  : "text-[12px] leading-[1.5]"
               }`}
             >
               {description}
@@ -294,7 +294,7 @@ const Index = () => {
                 className={`inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 font-semibold text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground ${
                   isMobileCard
                     ? "px-4 py-2.5 text-sm"
-                    : "w-full justify-center px-4 py-1.5 text-[10.75px]"
+                    : "w-full justify-center px-4 py-2 text-[12px]"
                 }`}
               >
                 Abrir aplicativo
@@ -309,11 +309,11 @@ const Index = () => {
 
   const getDesktopPageLayout = (page: AppItem[]) => {
     if (page.length === 3) {
-      return "mx-auto flex max-w-[58rem] items-stretch justify-center gap-4";
+      return "mx-auto flex max-w-[72rem] items-stretch justify-center gap-5";
     }
 
     if (page.length === 2) {
-      return "mx-auto flex max-w-[38.5rem] items-stretch justify-center gap-4";
+      return "mx-auto flex max-w-[46rem] items-stretch justify-center gap-5";
     }
 
     return "mx-auto flex items-stretch justify-center";
