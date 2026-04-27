@@ -364,11 +364,14 @@ const Index = () => {
               href="https://realtygi.pe"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-background/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/75 backdrop-blur transition-colors hover:border-primary/50 hover:text-primary"
+              className="hidden md:inline-flex items-center gap-2 rounded-full border border-white/10 bg-background/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/75 backdrop-blur transition-colors hover:border-primary/50 hover:text-primary"
             >
               Web principal
               <ArrowUpRight className="h-3 w-3" />
             </a>
+            <span className="md:hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/70">
+              Bienvenido al portal Realty
+            </span>
           </header>
 
           <div className="flex min-h-0 flex-1 items-center justify-center py-6 sm:py-7 md:py-0">
