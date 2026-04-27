@@ -184,14 +184,14 @@ const Index = () => {
     const isMobileCard = mode === "mobile";
     const { name, tagline, description, url, img, tag, icon: Icon } = app;
     const spotlightStyle = {
-      ["--spotlight-padding" as string]: isMobileCard ? "1rem" : "1.25rem",
+      ["--spotlight-padding" as string]: isMobileCard ? "1rem" : "1.35rem",
       ["--spotlight-radius" as string]: isMobileCard ? "1.5rem" : "1.5rem",
     } as CSSProperties;
 
     return (
       <SpotlightCard
         className={`h-full ${
-        isMobileCard ? "mx-auto w-full max-w-[22rem]" : "flex-auto min-w-0 w-[22rem] max-w-[22rem]"
+          isMobileCard ? "mx-auto w-full max-w-[22rem]" : "w-full max-w-[23rem]"
         }`.trim()}
         spotlightColor="rgba(214, 168, 71, 0.18)"
         style={spotlightStyle}
@@ -201,17 +201,17 @@ const Index = () => {
           target="_blank"
           rel="noreferrer"
           className={`group flex h-full flex-col ${
-            isMobileCard ? "min-h-[25rem]" : "min-h-[24rem]"
+            isMobileCard ? "min-h-[25rem]" : "min-h-[25rem]"
           }`}
         >
           <div
             className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-secondary/35 ${
-              isMobileCard ? "mb-4 p-2.5" : "mb-3.5 p-2"
+              isMobileCard ? "mb-4 p-2.5" : "mb-4 p-2.5"
             }`}
           >
             <div
               className={`relative overflow-hidden rounded-[1rem] border border-white/5 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] ${
-              isMobileCard ? "aspect-[16/10]" : "aspect-[16/9]"
+              isMobileCard ? "aspect-[16/10]" : "aspect-[16/10]"
               }`}
             >
               {img ? (
@@ -264,7 +264,7 @@ const Index = () => {
                 </p>
                 <h3
                   className={`mt-2 font-display font-bold leading-tight text-foreground ${
-                    isMobileCard ? "text-[1.55rem]" : "text-[1.25rem]"
+                    isMobileCard ? "text-[1.55rem]" : "text-[1.35rem]"
                   }`}
                 >
                   {name}
@@ -283,7 +283,7 @@ const Index = () => {
               className={`mt-3 text-muted-foreground ${
                 isMobileCard
                   ? "text-[13.5px] leading-relaxed"
-                  : "text-[12px] leading-[1.5]"
+                  : "text-[12.5px] leading-[1.55]"
               }`}
             >
               {description}
@@ -309,14 +309,14 @@ const Index = () => {
 
   const getDesktopPageLayout = (page: AppItem[]) => {
     if (page.length === 3) {
-      return "mx-auto flex max-w-[72rem] items-stretch justify-center gap-5";
+      return "mx-auto grid max-w-[72rem] grid-cols-3 items-stretch gap-5";
     }
 
     if (page.length === 2) {
-      return "mx-auto flex max-w-[46rem] items-stretch justify-center gap-5";
+      return "mx-auto grid max-w-[48rem] grid-cols-2 items-stretch gap-5";
     }
 
-    return "mx-auto flex items-stretch justify-center";
+    return "mx-auto grid max-w-[23rem] grid-cols-1 items-stretch";
   };
 
   const currentDesktopPage = desktopPages[desktopPageIndex] ?? desktopPages[0];
@@ -421,8 +421,8 @@ const Index = () => {
                   </div>
                 </div>
               ) : (
-                <div className="mx-auto w-full max-w-[72rem]">
-                  <div className="mx-auto flex w-full max-w-[66rem] items-center gap-3">
+                <div className="mx-auto w-full max-w-[74rem]">
+                  <div className="mx-auto grid w-full grid-cols-[2.75rem_minmax(0,1fr)_2.75rem] items-center gap-3">
                     <button
                       type="button"
                       aria-label="Pagina anterior"
@@ -446,7 +446,7 @@ const Index = () => {
                         {currentDesktopPage.map((app) => (
                           <div
                             key={app.name}
-                            className="flex flex-none justify-center"
+                            className="flex min-w-0 justify-center"
                           >
                             {renderAppCard(app, "desktop")}
                           </div>
