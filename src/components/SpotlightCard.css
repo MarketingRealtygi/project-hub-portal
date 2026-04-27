@@ -1,12 +1,12 @@
 .card-spotlight {
   position: relative;
   overflow: hidden;
-  border-radius: 1.75rem;
+  border-radius: var(--spotlight-radius, 1.75rem);
   border: 1px solid hsl(var(--border));
   background:
     linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--background) / 0.92)),
     var(--gradient-card);
-  padding: 2rem;
+  padding: var(--spotlight-padding, 2rem);
   --mouse-x: 50%;
   --mouse-y: 50%;
   --spotlight-color: rgba(255, 255, 255, 0.08);
@@ -45,8 +45,8 @@
 
 @media (max-width: 768px) {
   .card-spotlight {
-    border-radius: 1.5rem;
-    padding: 1rem;
+    border-radius: var(--spotlight-radius, 1.5rem);
+    padding: var(--spotlight-padding, 1rem);
   }
 
   .card-spotlight:hover,

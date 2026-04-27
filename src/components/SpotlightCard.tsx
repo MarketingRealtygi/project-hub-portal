@@ -1,18 +1,24 @@
-import { useRef, type MouseEvent, type ReactNode } from "react";
+import { useRef, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import "./SpotlightCard.css";
 
 interface SpotlightCardProps {
   children: ReactNode;
   className?: string;
   spotlightColor?: string;
+  style?: CSSProperties;
 }
 
 const SpotlightCard = ({
   children,
   className = "",
   spotlightColor = "rgba(255, 255, 255, 0.25)",
+  style,
 }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null);
+  const mergedStyle = {
+    ...style,
+    ["--spotlight-color" as string]: spotlightColor,
+  } as CSSProperties;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const element = divRef.current;
@@ -24,7 +30,6 @@ const SpotlightCard = ({
 
     element.style.setProperty("--mouse-x", `${x}px`);
     element.style.setProperty("--mouse-y", `${y}px`);
-    element.style.setProperty("--spotlight-color", spotlightColor);
   };
 
   return (
@@ -32,6 +37,7 @@ const SpotlightCard = ({
       ref={divRef}
       onMouseMove={handleMouseMove}
       className={`card-spotlight ${className}`.trim()}
+      style={mergedStyle}
     >
       {children}
     </div>
