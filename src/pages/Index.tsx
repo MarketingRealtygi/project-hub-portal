@@ -264,7 +264,7 @@ const Index = () => {
                 </p>
                 <h3
                   className={`mt-2 font-display font-bold leading-tight text-foreground ${
-                    isMobileCard ? "text-[1.55rem]" : "text-[1.25rem]"
+                    isMobileCard ? "text-[1.55rem]" : "text-[1.35rem]"
                   }`}
                 >
                   {name}
@@ -283,7 +283,7 @@ const Index = () => {
               className={`mt-3 text-muted-foreground ${
                 isMobileCard
                   ? "text-[13.5px] leading-relaxed"
-                  : "text-[12px] leading-[1.5]"
+                  : "text-[12.5px] leading-[1.55]"
               }`}
             >
               {description}
@@ -309,14 +309,14 @@ const Index = () => {
 
   const getDesktopPageLayout = (page: AppItem[]) => {
     if (page.length === 3) {
-      return "mx-auto flex max-w-[72rem] items-stretch justify-center gap-5";
+      return "mx-auto grid max-w-[72rem] grid-cols-3 items-stretch gap-5";
     }
 
     if (page.length === 2) {
-      return "mx-auto flex max-w-[46rem] items-stretch justify-center gap-5";
+      return "mx-auto grid max-w-[48rem] grid-cols-2 items-stretch gap-5";
     }
 
-    return "mx-auto flex items-stretch justify-center";
+    return "mx-auto grid max-w-[23rem] grid-cols-1 items-stretch";
   };
 
   const currentDesktopPage = desktopPages[desktopPageIndex] ?? desktopPages[0];
