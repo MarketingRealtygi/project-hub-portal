@@ -421,8 +421,8 @@ const Index = () => {
                   </div>
                 </div>
               ) : (
-                <div className="mx-auto w-full max-w-[72rem]">
-                  <div className="mx-auto flex w-full max-w-[66rem] items-center gap-3">
+                <div className="mx-auto w-full max-w-[74rem]">
+                  <div className="mx-auto grid w-full grid-cols-[2.75rem_minmax(0,1fr)_2.75rem] items-center gap-3">
                     <button
                       type="button"
                       aria-label="Pagina anterior"
@@ -446,7 +446,7 @@ const Index = () => {
                         {currentDesktopPage.map((app) => (
                           <div
                             key={app.name}
-                            className="flex flex-none justify-center"
+                            className="flex min-w-0 justify-center"
                           >
                             {renderAppCard(app, "desktop")}
                           </div>
