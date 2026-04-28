@@ -371,7 +371,11 @@ const Index = () => {
                       ? "Bienvenido\u00A0a\u00A0nuestro portal\u00A0interno"
                       : "Bienvenido a nuestro portal interno"
                   }
-                  className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem] [&_.split-word:nth-child(n+4)_.split-char]:text-primary"
+                  className={`font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem] ${
+                    isMobileViewport
+                      ? "[&_.split-word:nth-child(n+2)_.split-char]:text-primary"
+                      : "[&_.split-word:nth-child(n+4)_.split-char]:text-primary"
+                  }`}
                   delay={35}
                   duration={0.9}
                   splitType="chars"
