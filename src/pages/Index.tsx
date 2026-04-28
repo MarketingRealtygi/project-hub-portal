@@ -365,7 +365,7 @@ const Index = () => {
               transition={shellMotion}
               className="flex w-full flex-col items-center justify-center gap-4 md:gap-5"
             >
-              <div className="flex w-full flex-col items-center text-center">
+              <div className="flex w-full flex-col items-center text-center pb-3 sm:pb-4 md:pb-0">
                 <SplitText
                   tag="h1"
                   text={
