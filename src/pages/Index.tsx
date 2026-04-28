@@ -357,9 +357,10 @@ const Index = () => {
               href="https://realtygi.pe"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/70 transition-colors hover:text-primary sm:text-xs"
+              className="group inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/80 backdrop-blur-sm transition-all hover:border-primary/40 hover:bg-primary/10 hover:text-primary sm:text-xs"
             >
               Realtygi.pe
+              <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:h-3.5 sm:w-3.5" />
             </a>
           </header>
 
