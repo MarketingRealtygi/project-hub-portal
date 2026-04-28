@@ -12,6 +12,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import SpotlightCard from "@/components/SpotlightCard";
+import SplitText from "@/components/SplitText";
 import {
   Carousel,
   CarouselApi,
@@ -357,7 +358,30 @@ const Index = () => {
             >
               <div className="flex w-full flex-col items-center text-center">
                 <h1 className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem]">
-                  Bienvenido a nuestro <span className="text-primary">portal interno</span>
+                  <SplitText
+                    tag="span"
+                    text="Bienvenido a nuestro "
+                    className="text-foreground"
+                    delay={35}
+                    duration={0.9}
+                    splitType="chars"
+                    threshold={0.1}
+                    rootMargin="0px"
+                    from={{ opacity: 0, y: 24 }}
+                    to={{ opacity: 1, y: 0 }}
+                  />
+                  <SplitText
+                    tag="span"
+                    text="portal interno"
+                    className="text-primary"
+                    delay={35}
+                    duration={0.9}
+                    splitType="chars"
+                    threshold={0.1}
+                    rootMargin="0px"
+                    from={{ opacity: 0, y: 24 }}
+                    to={{ opacity: 1, y: 0 }}
+                  />
                 </h1>
               </div>
               {isMobileViewport ? (
