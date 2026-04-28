@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import SpotlightCard from "@/components/SpotlightCard";
 import SplitText from "@/components/SplitText";
+import realtygiPreview from "@/assets/realtygi-preview.png";
 import {
   Carousel,
   CarouselApi,
@@ -43,11 +44,10 @@ const apps: AppItem[] = [
     tagline: "Institucional",
     description:
       "Visita el sitio principal de Realty Inmobiliaria para revisar proyectos, novedades y presencia corporativa.",
-    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777407489/realtygi_b8cknc.png",
+    img: realtygiPreview,
     url: "https://realtygi.pe",
     tag: "Corporativo",
     icon: Globe,
-    imgFit: "contain",
   }, {
     name: "Aula Virtual",
     tagline: "Capacitacion",
