@@ -209,11 +209,13 @@ const Index = () => {
           target="_blank"
           rel="noreferrer"
           className={`group flex h-full flex-col ${
-            isMobileCard ? "min-h-[25rem]" : "min-h-[25rem]"
+            isMobileCard ? "min-h-[21rem]" : "min-h-[25rem]"
           }`}
         >
           <div
-            className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] mb-4 aspect-[16/10]`}
+            className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] ${
+              isMobileCard ? "mb-3 aspect-[16/9]" : "mb-4 aspect-[16/10]"
+            }`}
           >
             {img ? (
               <>
