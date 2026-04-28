@@ -356,10 +356,7 @@ const Index = () => {
               className="flex w-full flex-col items-center justify-center gap-4 md:gap-5"
             >
               <div className="flex w-full flex-col items-center text-center">
-                <span className="text-[9px] font-semibold uppercase tracking-[0.42em] text-primary/80 sm:text-[10px]">
-                  Bienvenido
-                </span>
-                <h1 className="mt-2 font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem]">
+                <h1 className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem]">
                   Bienvenido a nuestro <span className="text-primary">portal interno</span>
                 </h1>
               </div>
