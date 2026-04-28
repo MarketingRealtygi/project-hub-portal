@@ -209,11 +209,13 @@ const Index = () => {
           target="_blank"
           rel="noreferrer"
           className={`group flex h-full flex-col ${
-            isMobileCard ? "min-h-[25rem]" : "min-h-[25rem]"
+            isMobileCard ? "min-h-[21rem]" : "min-h-[25rem]"
           }`}
         >
           <div
-            className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] mb-4 aspect-[16/10]`}
+            className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] ${
+              isMobileCard ? "mb-3 aspect-[16/9]" : "mb-4 aspect-[16/10]"
+            }`}
           >
             {img ? (
               <>
@@ -366,8 +368,16 @@ const Index = () => {
               <div className="flex w-full flex-col items-center text-center">
                 <SplitText
                   tag="h1"
-                  text="Bienvenido a nuestro portal interno"
-                  className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem] [&_.split-word:nth-child(n+4)_.split-char]:text-primary"
+                  text={
+                    isMobileViewport
+                      ? "Bienvenido\u00A0a\u00A0nuestro portal\u00A0interno"
+                      : "Bienvenido a nuestro portal interno"
+                  }
+                  className={`font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem] ${
+                    isMobileViewport
+                      ? "[&_.split-word:nth-child(n+2)_.split-char]:text-primary"
+                      : "[&_.split-word:nth-child(n+4)_.split-char]:text-primary"
+                  }`}
                   delay={35}
                   duration={0.9}
                   splitType="chars"
