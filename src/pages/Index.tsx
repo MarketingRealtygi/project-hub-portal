@@ -357,32 +357,18 @@ const Index = () => {
               className="flex w-full flex-col items-center justify-center gap-4 md:gap-5"
             >
               <div className="flex w-full flex-col items-center text-center">
-                <h1 className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem]">
-                  <SplitText
-                    tag="span"
-                    text="Bienvenido a nuestro "
-                    className="text-foreground"
-                    delay={35}
-                    duration={0.9}
-                    splitType="chars"
-                    threshold={0.1}
-                    rootMargin="0px"
-                    from={{ opacity: 0, y: 24 }}
-                    to={{ opacity: 1, y: 0 }}
-                  />
-                  <SplitText
-                    tag="span"
-                    text="portal interno"
-                    className="text-primary"
-                    delay={35}
-                    duration={0.9}
-                    splitType="chars"
-                    threshold={0.1}
-                    rootMargin="0px"
-                    from={{ opacity: 0, y: 24 }}
-                    to={{ opacity: 1, y: 0 }}
-                  />
-                </h1>
+                <SplitText
+                  tag="h1"
+                  text="Bienvenido a nuestro portal interno"
+                  className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem] [&_.split-word:nth-child(n+4)_.split-char]:text-primary"
+                  delay={35}
+                  duration={0.9}
+                  splitType="chars"
+                  threshold={0.1}
+                  rootMargin="0px"
+                  from={{ opacity: 0, y: 24 }}
+                  to={{ opacity: 1, y: 0 }}
+                />
               </div>
               {isMobileViewport ? (
                 <div className="mx-auto mt-2 w-full max-w-sm">
