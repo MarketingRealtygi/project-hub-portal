@@ -33,6 +33,7 @@ type AppItem = {
   url: string;
   tag: string;
   icon: LucideIcon;
+  imgFit?: "cover" | "contain";
 };
 
 const apps: AppItem[] = [
@@ -46,6 +47,7 @@ const apps: AppItem[] = [
     url: "https://realtygi.pe",
     tag: "Corporativo",
     icon: Globe,
+    imgFit: "contain",
   }, {
     name: "Aula Virtual",
     tagline: "Capacitacion",
