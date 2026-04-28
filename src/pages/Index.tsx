@@ -353,9 +353,14 @@ const Index = () => {
               alt="Realty Inmobiliaria"
               className="h-4 w-auto sm:h-7"
             />
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/70 sm:text-xs">
-              Portal Interno Realty
-            </span>
+            <a
+              href="https://realtygi.pe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/70 transition-colors hover:text-primary sm:text-xs"
+            >
+              Realtygi.pe
+            </a>
           </header>
 
           <div className="flex min-h-0 flex-1 items-center justify-center py-6 sm:py-7 md:py-0">
