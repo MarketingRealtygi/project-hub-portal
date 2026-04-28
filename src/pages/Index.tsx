@@ -366,7 +366,7 @@ const Index = () => {
               <div className="flex w-full flex-col items-center text-center">
                 <SplitText
                   tag="h1"
-                  text="Bienvenido a nuestro portal interno"
+                  text={isMobileViewport ? "Bienvenido a nuestro\nportal interno" : "Bienvenido a nuestro portal interno"}
                   className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem] [&_.split-word:nth-child(n+4)_.split-char]:text-primary"
                   delay={35}
                   duration={0.9}
