@@ -344,7 +344,7 @@ const Index = () => {
               className="h-4 w-auto sm:h-7"
             />
             <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/70 sm:text-xs">
-              Bienvenido al portal Realty
+              Portal Interno Realty
             </span>
           </header>
 
@@ -355,6 +355,14 @@ const Index = () => {
               transition={shellMotion}
               className="flex w-full flex-col items-center justify-center gap-4 md:gap-5"
             >
+              <div className="flex w-full flex-col items-center text-center">
+                <span className="text-[9px] font-semibold uppercase tracking-[0.42em] text-primary/80 sm:text-[10px]">
+                  Bienvenido
+                </span>
+                <h1 className="mt-2 font-display text-[1.6rem] font-semibold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] md:text-[2.4rem]">
+                  Bienvenido a nuestro <span className="text-primary">portal interno</span>
+                </h1>
+              </div>
               {isMobileViewport ? (
                 <div className="mx-auto mt-2 w-full max-w-sm">
                   <Carousel
