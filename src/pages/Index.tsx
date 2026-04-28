@@ -187,7 +187,10 @@ const Index = () => {
   const renderAppCard = (app: AppItem, mode: CardMode) => {
     const isMobileCard = mode === "mobile";
     const { name, tagline, description, url, img, tag, icon: Icon, imgFit } = app;
-    const fitClass = imgFit === "contain" ? "object-contain p-3" : "object-cover";
+    const fitClass =
+      imgFit === "contain"
+        ? "object-cover object-top"
+        : "object-cover object-center";
     const spotlightStyle = {
       ["--spotlight-padding" as string]: isMobileCard ? "1rem" : "1.35rem",
       ["--spotlight-radius" as string]: isMobileCard ? "1.5rem" : "1.5rem",
@@ -224,7 +227,7 @@ const Index = () => {
                       ? "(max-width: 767px) 86vw, 352px"
                       : "(min-width: 1280px) 22rem, (min-width: 1024px) 20rem, 32vw"
                   }
-                  className={`h-full w-full ${fitClass} object-center transition-transform duration-500 group-hover:scale-[1.03]`}
+                  className={`h-full w-full ${fitClass} transition-transform duration-500 group-hover:scale-[1.03]`}
                 />
                 <div
                   className={`absolute left-3 top-3 flex items-center justify-center rounded-xl border border-white/10 bg-background/72 text-primary backdrop-blur ${
