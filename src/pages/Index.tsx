@@ -453,7 +453,7 @@ const Index = () => {
                     </button>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="mt-5 flex items-center justify-center gap-2">
                     {desktopPages.map((_, index) => {
                       const isActive = desktopPageIndex === index;
 
@@ -463,14 +463,12 @@ const Index = () => {
                           type="button"
                           aria-label={`Ir a la pagina ${index + 1}`}
                           onClick={() => setDesktopPageIndex(index)}
-                          className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ${
+                          className={`h-2.5 rounded-full transition-all duration-300 ${
                             isActive
-                              ? "border-primary/60 bg-primary text-primary-foreground"
-                              : "border-white/10 bg-background/15 text-foreground/65 hover:border-primary/40 hover:text-primary"
+                              ? "w-8 bg-primary"
+                              : "w-2.5 bg-border hover:bg-muted-foreground/50"
                           }`}
-                        >
-                          Pagina {index + 1}
-                        </button>
+                        />
                       );
                     })}
                   </div>
