@@ -253,15 +253,8 @@ const Index = () => {
 
           <div className="flex flex-1 flex-col">
             <div className="min-w-0">
-              <p
-                className={`font-semibold uppercase tracking-[0.24em] text-primary/80 ${
-                  isMobileCard ? "text-[10px]" : "text-[10px]"
-                }`}
-              >
-                {tagline}
-              </p>
               <h3
-                className={`mt-2 font-display font-bold leading-tight text-foreground ${
+                className={`font-display font-bold leading-tight text-foreground ${
                   isMobileCard ? "text-[1.55rem]" : "text-[1.35rem]"
                 }`}
               >
