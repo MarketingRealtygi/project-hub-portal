@@ -186,7 +186,7 @@ const Index = () => {
 
   const renderAppCard = (app: AppItem, mode: CardMode) => {
     const isMobileCard = mode === "mobile";
-    const { name, tagline, description, url, img, tag, icon: Icon, imgFit } = app;
+    const { name, description, url, img, icon: Icon, imgFit } = app;
     const fitClass =
       imgFit === "contain"
         ? "object-cover object-top"
@@ -218,8 +218,7 @@ const Index = () => {
             }`}
           >
             {img ? (
-              <>
-                <img
+              <img
                   src={img}
                   alt={`Vista previa de ${name}`}
                   loading="lazy"
@@ -231,16 +230,6 @@ const Index = () => {
                   }
                   className={`h-full w-full ${fitClass} transition-transform duration-500 group-hover:scale-[1.03]`}
                 />
-                <div
-                  className={`absolute left-3 top-3 flex items-center justify-center rounded-xl border border-white/10 bg-background/72 text-primary backdrop-blur ${
-                    isMobileCard ? "h-10 w-10" : "h-[2.4rem] w-[2.4rem]"
-                  }`}
-                >
-                  <Icon
-                    className={isMobileCard ? "h-5 w-5" : "h-[1.1rem] w-[1.1rem]"}
-                  />
-                </div>
-              </>
             ) : (
               <div className="flex h-full items-center justify-center p-6">
                 <div
@@ -252,13 +241,6 @@ const Index = () => {
                 </div>
               </div>
             )}
-            <span
-              className={`absolute right-3 top-3 rounded-full border border-primary/40 bg-background/90 px-2.5 py-1 font-semibold uppercase tracking-widest text-primary shadow-[0_4px_14px_rgba(0,0,0,0.45)] backdrop-blur-md ${
-                isMobileCard ? "text-[10px]" : "text-[9px]"
-              }`}
-            >
-              {tag}
-            </span>
           </div>
 
           <div className="flex flex-1 flex-col">
