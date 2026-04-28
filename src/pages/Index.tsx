@@ -205,78 +205,68 @@ const Index = () => {
           }`}
         >
           <div
-            className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-secondary/35 ${
-              isMobileCard ? "mb-4 p-2.5" : "mb-4 p-2.5"
-            }`}
+            className={`relative overflow-hidden rounded-[1.1rem] border border-border/70 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] mb-4 aspect-[16/10]`}
           >
-            <div
-              className={`relative overflow-hidden rounded-[1rem] border border-white/5 bg-[radial-gradient(circle_at_top,_rgba(214,168,71,0.22),_rgba(10,10,10,0.95)_78%)] ${
-              isMobileCard ? "aspect-[16/10]" : "aspect-[16/10]"
+            {img ? (
+              <>
+                <img
+                  src={img}
+                  alt={`Vista previa de ${name}`}
+                  loading="lazy"
+                  decoding="async"
+                  sizes={
+                    isMobileCard
+                      ? "(max-width: 767px) 86vw, 352px"
+                      : "(min-width: 1280px) 22rem, (min-width: 1024px) 20rem, 32vw"
+                  }
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <div
+                  className={`absolute left-3 top-3 flex items-center justify-center rounded-xl border border-white/10 bg-background/72 text-primary backdrop-blur ${
+                    isMobileCard ? "h-10 w-10" : "h-[2.4rem] w-[2.4rem]"
+                  }`}
+                >
+                  <Icon
+                    className={isMobileCard ? "h-5 w-5" : "h-[1.1rem] w-[1.1rem]"}
+                  />
+                </div>
+              </>
+            ) : (
+              <div className="flex h-full items-center justify-center p-6">
+                <div
+                  className={`flex items-center justify-center rounded-2xl border border-primary/20 bg-background/70 text-primary backdrop-blur ${
+                    isMobileCard ? "h-16 w-16" : "h-[3.6rem] w-[3.6rem]"
+                  }`}
+                >
+                  <Icon className={isMobileCard ? "h-8 w-8" : "h-5.5 w-5.5"} />
+                </div>
+              </div>
+            )}
+            <span
+              className={`absolute right-3 top-3 rounded-full border border-white/10 bg-background/72 px-2.5 py-1 font-semibold uppercase tracking-widest text-foreground/85 backdrop-blur ${
+                isMobileCard ? "text-[10px]" : "text-[9px]"
               }`}
             >
-              {img ? (
-                <>
-                  <img
-                    src={img}
-                    alt={`Vista previa de ${name}`}
-                    loading="lazy"
-                    decoding="async"
-                    sizes={
-                      isMobileCard
-                        ? "(max-width: 767px) 86vw, 352px"
-                        : "(min-width: 1280px) 22rem, (min-width: 1024px) 20rem, 32vw"
-                    }
-                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                  <div
-                    className={`absolute left-3 top-3 flex items-center justify-center rounded-xl border border-white/10 bg-background/72 text-primary backdrop-blur ${
-                      isMobileCard ? "h-10 w-10" : "h-[2.4rem] w-[2.4rem]"
-                    }`}
-                  >
-                    <Icon
-                      className={isMobileCard ? "h-5 w-5" : "h-[1.1rem] w-[1.1rem]"}
-                    />
-                  </div>
-                </>
-              ) : (
-                <div className="flex h-full items-center justify-center p-6">
-                  <div
-                    className={`flex items-center justify-center rounded-2xl border border-primary/20 bg-background/70 text-primary backdrop-blur ${
-                      isMobileCard ? "h-16 w-16" : "h-[3.6rem] w-[3.6rem]"
-                    }`}
-                  >
-                    <Icon className={isMobileCard ? "h-8 w-8" : "h-5.5 w-5.5"} />
-                  </div>
-                </div>
-              )}
-            </div>
+              {tag}
+            </span>
           </div>
 
           <div className="flex flex-1 flex-col">
-            <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0">
-                <p
-                  className={`font-semibold uppercase tracking-[0.24em] text-primary/80 ${
-                    isMobileCard ? "text-[10px]" : "text-[10px]"
-                  }`}
-                >
-                  {tagline}
-                </p>
-                <h3
-                  className={`mt-2 font-display font-bold leading-tight text-foreground ${
-                    isMobileCard ? "text-[1.55rem]" : "text-[1.35rem]"
-                  }`}
-                >
-                  {name}
-                </h3>
-              </div>
-              <span
-                className={`shrink-0 rounded-full border border-border bg-secondary px-2.5 py-1 font-semibold uppercase tracking-widest text-muted-foreground ${
-                  isMobileCard ? "text-[10px]" : "text-[9px]"
+            <div className="min-w-0">
+              <p
+                className={`font-semibold uppercase tracking-[0.24em] text-primary/80 ${
+                  isMobileCard ? "text-[10px]" : "text-[10px]"
                 }`}
               >
-                {tag}
-              </span>
+                {tagline}
+              </p>
+              <h3
+                className={`mt-2 font-display font-bold leading-tight text-foreground ${
+                  isMobileCard ? "text-[1.55rem]" : "text-[1.35rem]"
+                }`}
+              >
+                {name}
+              </h3>
             </div>
 
             <p
@@ -463,7 +453,7 @@ const Index = () => {
                     </button>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="mt-5 flex items-center justify-center gap-2">
                     {desktopPages.map((_, index) => {
                       const isActive = desktopPageIndex === index;
 
@@ -473,14 +463,12 @@ const Index = () => {
                           type="button"
                           aria-label={`Ir a la pagina ${index + 1}`}
                           onClick={() => setDesktopPageIndex(index)}
-                          className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ${
+                          className={`h-2.5 rounded-full transition-all duration-300 ${
                             isActive
-                              ? "border-primary/60 bg-primary text-primary-foreground"
-                              : "border-white/10 bg-background/15 text-foreground/65 hover:border-primary/40 hover:text-primary"
+                              ? "w-8 bg-primary"
+                              : "w-2.5 bg-border hover:bg-muted-foreground/50"
                           }`}
-                        >
-                          Pagina {index + 1}
-                        </button>
+                        />
                       );
                     })}
                   </div>
