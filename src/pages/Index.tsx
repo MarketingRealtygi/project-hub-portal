@@ -243,7 +243,7 @@ const Index = () => {
               </div>
             )}
             <span
-              className={`absolute right-3 top-3 rounded-full border border-white/10 bg-background/72 px-2.5 py-1 font-semibold uppercase tracking-widest text-foreground/85 backdrop-blur ${
+              className={`absolute right-3 top-3 rounded-full border border-primary/40 bg-background/90 px-2.5 py-1 font-semibold uppercase tracking-widest text-primary shadow-[0_4px_14px_rgba(0,0,0,0.45)] backdrop-blur-md ${
                 isMobileCard ? "text-[10px]" : "text-[9px]"
               }`}
             >
