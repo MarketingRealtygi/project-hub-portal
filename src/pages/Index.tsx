@@ -500,7 +500,7 @@ const Index = () => {
           </div>
 
           <footer className="mx-auto mt-6 flex w-full max-w-[72rem] items-center justify-between gap-4 border-t border-border/80 pt-3 text-[11px] text-muted-foreground md:mt-0 md:pt-4">
-            <span>Portal interno</span>
+            <span>Portal Interno Realty</span>
             <span>&copy; {new Date().getFullYear()} Realty Inmobiliaria</span>
           </footer>
         </div>
