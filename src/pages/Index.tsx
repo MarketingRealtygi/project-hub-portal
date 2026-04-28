@@ -43,7 +43,7 @@ const apps: AppItem[] = [
     name: "Web Principal",
     tagline: "Institucional",
     description:
-      "Visita el sitio principal de Realty Inmobiliaria para conocer sobre nosotros y los proyectos que brindamos.",
+      "Conoce todo sobre Realty Grupo Inmobiliaria y los proyectos que brindamos.",
     img: realtygiPreview,
     url: "https://realtygi.pe",
     tag: "Corporativo",
