@@ -36,14 +36,24 @@ type AppItem = {
 };
 
 const apps: AppItem[] = [
+
   {
+    name: "Web Principal",
+    tagline: "Institucional",
+    description:
+      "Visita el sitio principal de Realty Inmobiliaria para revisar proyectos, novedades y presencia corporativa.",
+    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777407489/realtygi_b8cknc.png",
+    url: "https://realtygi.pe",
+    tag: "Corporativo",
+    icon: Globe,
+  }, {
     name: "Aula Virtual",
     tagline: "Capacitacion",
     description:
       "Cursos, materiales y certificaciones para el equipo. Aprende a tu ritmo.",
     img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777407688/aula_clrq3i.png",
     url: "https://aula.realtygi.pe",
-    tag: "Educacion",
+    tag: "Educación",
     icon: BookOpen,
   },
   {
@@ -58,32 +68,22 @@ const apps: AppItem[] = [
   },
   {
     name: "Evaluaciones",
-    tagline: "Calificacion",
+    tagline: "Calificación",
     description:
       "Registra, evalua y aprueba asesores con trazabilidad completa.",
     img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1776892341/sistema_evaluaciones_wjizcc.png",
     url: "https://evaluaciones.realtygi.pe",
-    tag: "Financiero",
+    tag: "Educación",
     icon: ClipboardCheck,
   },
   {
-    name: "Google Drive",
+    name: "Drive Comercial",
     tagline: "Archivos",
     description:
       "Accede a documentos, carpetas compartidas y recursos del equipo en un solo lugar.",
     url: "https://drive.google.com/",
-    tag: "Documentos",
+    tag: "Comercial",
     icon: FolderOpen,
-  },
-  {
-    name: "Web Principal",
-    tagline: "Institucional",
-    description:
-      "Visita el sitio principal de Realty Inmobiliaria para revisar proyectos, novedades y presencia corporativa.",
-    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777407489/realtygi_b8cknc.png",
-    url: "https://realtygi.pe",
-    tag: "Corporativo",
-    icon: Globe,
   },
 ];
 
