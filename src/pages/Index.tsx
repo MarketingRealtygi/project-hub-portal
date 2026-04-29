@@ -43,7 +43,7 @@ const apps: AppItem[] = [
     tagline: "Reservas",
     description:
       "Gestiona separaciones de lotes y unidades con seguimiento en tiempo real.",
-    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1776891989/plataforma_separaciones_e89wlm.png",
+    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777482649/dashboard-separaciones_r1xtzx.png",
     url: "https://separaciones.realtygi.pe",
     tag: "Comercial",
     icon: LayoutDashboard,
@@ -53,6 +53,7 @@ const apps: AppItem[] = [
     tagline: "Archivos",
     description:
       "Accede a documentos, carpetas compartidas y recursos del equipo en un solo lugar.",
+    img:"https://res.cloudinary.com/dtqvmh9te/image/upload/v1777483290/drive_comercial_i3sxte.jpg",
     url: "https://drive.google.com/",
     tag: "Comercial",
     icon: FolderOpen,
@@ -62,7 +63,7 @@ const apps: AppItem[] = [
     tagline: "Capacitacion",
     description:
       "Cursos, materiales y certificaciones para el equipo. Aprende a tu ritmo.",
-    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777407688/aula_clrq3i.png",
+    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777482909/aula-dashboard_wvc3an.png",
     url: "https://aula.realtygi.pe",
     tag: "Educación",
     icon: BookOpen,
@@ -72,7 +73,7 @@ const apps: AppItem[] = [
     tagline: "Calificación",
     description:
       "Registra, evalua y aprueba asesores con trazabilidad completa.",
-    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1776892341/sistema_evaluaciones_wjizcc.png",
+    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777492347/evaluaciones_dashboard_xxdmwz.png",
     url: "https://evaluaciones.realtygi.pe",
     tag: "Educación",
     icon: ClipboardCheck,
