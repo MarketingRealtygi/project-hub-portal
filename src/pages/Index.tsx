@@ -39,16 +39,6 @@ type AppItem = {
 
 const apps: AppItem[] = [
   {
-    name: "Aula Virtual",
-    tagline: "Capacitacion",
-    description:
-      "Cursos, materiales y certificaciones para el equipo. Aprende a tu ritmo.",
-    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777407688/aula_clrq3i.png",
-    url: "https://aula.realtygi.pe",
-    tag: "Educación",
-    icon: BookOpen,
-  },
-  {
     name: "Separaciones",
     tagline: "Reservas",
     description:
@@ -59,6 +49,25 @@ const apps: AppItem[] = [
     icon: LayoutDashboard,
   },
   {
+    name: "Drive Comercial",
+    tagline: "Archivos",
+    description:
+      "Accede a documentos, carpetas compartidas y recursos del equipo en un solo lugar.",
+    url: "https://drive.google.com/",
+    tag: "Comercial",
+    icon: FolderOpen,
+  },
+  {
+    name: "Aula Virtual",
+    tagline: "Capacitacion",
+    description:
+      "Cursos, materiales y certificaciones para el equipo. Aprende a tu ritmo.",
+    img: "https://res.cloudinary.com/dtqvmh9te/image/upload/v1777407688/aula_clrq3i.png",
+    url: "https://aula.realtygi.pe",
+    tag: "Educación",
+    icon: BookOpen,
+  },
+  {
     name: "Evaluaciones",
     tagline: "Calificación",
     description:
@@ -67,15 +76,6 @@ const apps: AppItem[] = [
     url: "https://evaluaciones.realtygi.pe",
     tag: "Educación",
     icon: ClipboardCheck,
-  },
-  {
-    name: "Drive Comercial",
-    tagline: "Archivos",
-    description:
-      "Accede a documentos, carpetas compartidas y recursos del equipo en un solo lugar.",
-    url: "https://drive.google.com/",
-    tag: "Comercial",
-    icon: FolderOpen,
   },
 ];
 
