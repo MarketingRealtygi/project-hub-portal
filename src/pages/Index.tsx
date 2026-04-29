@@ -367,7 +367,7 @@ const Index = () => {
               </div>
               {isMobileViewport ? (
                 <div className="mx-auto mt-2 w-full max-w-sm">
-                  <div className="relative">
+                  <div className="relative px-7">
                     <Carousel
                       setApi={setMobileCarouselApi}
                       opts={{ align: "center", containScroll: "trimSnaps" }}
@@ -397,7 +397,7 @@ const Index = () => {
                       aria-label="Anterior"
                       onClick={() => mobileCarouselApi?.scrollPrev()}
                       disabled={mobileCarouselIndex === 0}
-                      className="absolute left-0 top-1/2 z-20 -translate-y-1/2 -translate-x-1 flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-30"
+                      className="absolute left-0 top-1/2 z-20 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
@@ -406,7 +406,7 @@ const Index = () => {
                       aria-label="Siguiente"
                       onClick={() => mobileCarouselApi?.scrollNext()}
                       disabled={mobileCarouselIndex === apps.length - 1}
-                      className="absolute right-0 top-1/2 z-20 -translate-y-1/2 translate-x-1 flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-30"
+                      className="absolute right-0 top-1/2 z-20 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       <ChevronRight className="h-5 w-5" />
                     </button>
