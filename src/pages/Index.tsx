@@ -367,7 +367,7 @@ const Index = () => {
               </div>
               {isMobileViewport ? (
                 <div className="mx-auto mt-2 w-full max-w-sm">
-                  <div className="relative px-7">
+                  <div className="relative px-10">
                     <Carousel
                       setApi={setMobileCarouselApi}
                       opts={{ align: "center", containScroll: "trimSnaps" }}
