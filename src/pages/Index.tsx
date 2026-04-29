@@ -262,7 +262,7 @@ const Index = () => {
                     : "w-full justify-center px-4 py-2 text-[12px]"
                 }`}
               >
-                Abrir aplicativo
+                Ir al sitio
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
               </span>
             </div>
