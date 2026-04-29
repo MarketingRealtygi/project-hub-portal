@@ -342,9 +342,9 @@ const Index = () => {
               initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={shellMotion}
-              className="flex w-full flex-col items-center justify-center gap-4 md:gap-5"
+              className="flex w-full flex-col items-center justify-center gap-4 md:gap-10"
             >
-              <div className="flex w-full flex-col items-center text-center pb-3 sm:pb-4 md:pb-0">
+              <div className="flex w-full flex-col items-center text-center pb-3 sm:pb-4 md:pb-2 md:-mt-6">
                 <SplitText
                   tag="h1"
                   text={
