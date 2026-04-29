@@ -367,29 +367,50 @@ const Index = () => {
               </div>
               {isMobileViewport ? (
                 <div className="mx-auto mt-2 w-full max-w-sm">
-                  <Carousel
-                    setApi={setMobileCarouselApi}
-                    opts={{ align: "center", containScroll: "trimSnaps" }}
-                    className="mx-auto w-full max-w-sm"
-                  >
-                    <CarouselContent className="-ml-0">
-                      {apps.map((app, index) => (
-                        <CarouselItem key={app.name} className="basis-full pl-0">
-                          <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                              ...shellMotion,
-                              delay: index * 0.04,
-                            }}
-                            className="px-1"
-                          >
-                            {renderAppCard(app, "mobile")}
-                          </motion.div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
+                  <div className="relative">
+                    <Carousel
+                      setApi={setMobileCarouselApi}
+                      opts={{ align: "center", containScroll: "trimSnaps" }}
+                      className="mx-auto w-full max-w-sm"
+                    >
+                      <CarouselContent className="-ml-0">
+                        {apps.map((app, index) => (
+                          <CarouselItem key={app.name} className="basis-full pl-0">
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{
+                                ...shellMotion,
+                                delay: index * 0.04,
+                              }}
+                              className="px-1"
+                            >
+                              {renderAppCard(app, "mobile")}
+                            </motion.div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
+
+                    <button
+                      type="button"
+                      aria-label="Anterior"
+                      onClick={() => mobileCarouselApi?.scrollPrev()}
+                      disabled={mobileCarouselIndex === 0}
+                      className="absolute left-0 top-1/2 z-20 -translate-y-1/2 -translate-x-1 flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-30"
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    <button
+                      type="button"
+                      aria-label="Siguiente"
+                      onClick={() => mobileCarouselApi?.scrollNext()}
+                      disabled={mobileCarouselIndex === apps.length - 1}
+                      className="absolute right-0 top-1/2 z-20 -translate-y-1/2 translate-x-1 flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-30"
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                  </div>
 
                   <div className="mt-5 flex items-center justify-center gap-2">
                     {apps.map((app, index) => (
