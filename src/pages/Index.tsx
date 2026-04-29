@@ -38,17 +38,7 @@ type AppItem = {
 };
 
 const apps: AppItem[] = [
-
   {
-    name: "Web Principal",
-    tagline: "Institucional",
-    description:
-      "Conoce todo sobre Realty Grupo Inmobiliaria y los proyectos que brindamos.",
-    img: realtygiPreview,
-    url: "https://realtygi.pe",
-    tag: "Corporativo",
-    icon: Globe,
-  }, {
     name: "Aula Virtual",
     tagline: "Capacitacion",
     description:
